@@ -1,0 +1,10 @@
+/Users/bhargavkaranam/Projects/pammi/slcm/bin/slcm.dll
+/Users/bhargavkaranam/Projects/pammi/slcm/bin/slcm.pdb
+/Users/bhargavkaranam/Projects/pammi/slcm/obj/Debug/slcm.csproj.CoreCompileInputs.cache
+/Users/bhargavkaranam/Projects/pammi/slcm/obj/Debug/slcm.dll
+/Users/bhargavkaranam/Projects/pammi/slcm/obj/Debug/slcm.pdb
+/Users/bhargavkaranam/Projects/pammi/slcm/bin/MySql.Data.dll
+/Users/bhargavkaranam/Projects/pammi/slcm/obj/Debug/slcm.csprojResolveAssemblyReference.cache
+/Users/bhargavkaranam/Projects/pammi/slcm/bin/MSSQL.dll
+/Users/bhargavkaranam/Projects/pammi/slcm/bin/System.Data.SqlClient.dll
+/Users/bhargavkaranam/Projects/pammi/slcm/bin/MSSQL.xml

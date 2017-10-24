@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MSSQL</name>
+    </assembly>
+    <members>
+        <member name="M:MSSQL.Connect">
+            <summary>
+            Use this function to connect to a MS SQL database.
+            It will use a default connection string to access it.
+            To set the default connection string, call the static function SetDefaultConnectionString({...});
+            </summary>
+            <returns>Returns an MSSQL object</returns>
+        </member>
+        <member name="M:MSSQL.Execute(System.String)">
+            <summary>
+            Executes a query which doesn't return any value.
+            You can use this multiple times without remaking a MSSQL object
+            </summary>
+            <param name="query">This is the string query</param>
+        </member>
+    </members>
+</doc>
