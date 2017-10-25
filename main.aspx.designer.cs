@@ -12,11 +12,5 @@ namespace slcm {
 	
 	
 	public partial class main {
-		
-		protected System.Web.UI.HtmlControls.HtmlForm form1;
-		
-		protected System.Web.UI.HtmlControls.HtmlGenericControl test;
-		
-		protected System.Web.UI.HtmlControls.HtmlButton hello;
 	}
 }

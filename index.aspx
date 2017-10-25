@@ -35,20 +35,20 @@
     <h1 class="title">Register
       <div class="close"></div>
     </h1>
-    <form>
+    <form id="registerForm" method="post" action="register.aspx">
       <div class="input-container">
-        <input type="text" id="usernameRegister" runat="server" required="required"/>
+        <input name="username" type="text" id="usernameRegister" runat="server" required="required"/>
         <label for="usernameRegister">Username</label>
         <div class="bar"></div>
       </div>
       <div class="input-container">
-        <input runat="server" type="password" id="passwordRegister" required="required"/>
+        <input name="password" runat="server" type="password" id="passwordRegister" required="required"/>
         <label for="passwordRegister">Password</label>
         <div class="bar"></div>
       </div>
 
       <div class="button-container">
-        <button type="submit" runat="server" onserverclick="RegisterUser"><span>Next</span></button>
+        <button type="submit" runat="server"><span>Next</span></button>
       </div>
     </form>
   </div>

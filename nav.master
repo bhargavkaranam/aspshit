@@ -1,30 +1,106 @@
-﻿<%@ Master Language="C#" Inherits="slcm.nav" %>
-<!DOCTYPE html>
-<html>
-<head runat="server">
-	<title>SLcM</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+﻿    <%@ Master Language="C#" Inherits="slcm.nav" CodeFile="nav.master.cs" AutoEventWireup="true"%>
+    <!DOCTYPE html>
+    <html>
+    <head runat="server">
+    	<title>SLcM</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <style>
+			#ctl00_message
+			{
+             font-size: 30px;
+			 margin-left: 30px;
+			}
+		</style>
+    </head>
+    <body>
+    	
+        <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <h4>New Admission</h4>
+          <div class="row">
+        <form class="col s12" id="test" method="post" action="admission.aspx">
+          <div class="row">
+            <div class="input-field col s6">
+              <input name="first_name" id="first_name" type="text" class="validate">
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input name="last_name" id="last_name" type="text" class="validate">
+              <label for="last_name">Last Name</label>
+            </div>
+          </div>
 
-</head>
-<body>
-	<nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
-      </ul>
-    </div>
-  </nav>
-</body>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>	
-<!--<script src="js/main.js"></script> -->
-</html>
+          <div class="row">
+            <div class="input-field col s12">
+              <input name="address" id="address" type="text" class="validate">
+              <label for="address">address</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input name="email" id="email" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input name="year" id="year" type="number" class="validate">
+              <label for="year">Year of Admission</label>
+            </div>
+          </div>
+		  <div class="row">
+            <div class="input-field col s12">
+            <select name="branch" id="branch">
+              <option value="" disabled selected>Choose your option</option>
+              <option value="it">IT</option>
+              <option value="cce">CCE</option>
+              <option value="civil">Civil</option>
+			  <option value="cse">CSE</option>
+			  <option value="eee">EEE</option>
+			  <option value="ece">ECE</option>
+            </select>
+            <label>Course</label>
+            </div>
+          </div>
+		  
+        
+      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="modal-action waves-effect waves-green btn-flat submitNewStudent">Submit</a>
+        </div>
+			</form>
+      </div>
+    	<nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">UDIS</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a class="modal-trigger" href="#modal1">New Admission</a></li>
+            <li><a href="courses.aspx">Course Register</a></li>
+            <li><a href="collapsible.html">Update Info</a></li>
+            <li><a href="inventory.aspx">Accounts and Inventory</a></li>
+            <li><a href="research.aspx">Research</a></li>
+          </ul>
+        </div>
+      </nav>
+	  
+	  <asp:Label id="message" runat="server">
+	  </asp:Label>
+      <asp:contentplaceholder id="content" runat="server">
+      </asp:contentplaceholder>
 
-docker run -d --name pammi -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=P@55w0rd' -e 'MSSQL_PID=Developer' -p 1433:1433 microsoft/mssql-server-linux:2017-latest
+    			
+    </body>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>	
+    <script>
+    	$(".modal").modal();
+		$('select').material_select();
+        
+    </script>
+    </html>
+

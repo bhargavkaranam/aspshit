@@ -5,42 +5,29 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Text;
+
 namespace slcm
 {
 
-    public partial class index : System.Web.UI.Page
+    public partial class register : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
-            {
-                username.Visible = true;
-            }
-        }
-        protected void CheckLogin(object sender, System.EventArgs e)
-        {
+            
             MD5 md5Hash = MD5.Create();
-            string uname = username.Value.ToString();
-            string pass = password.Value.ToString();
+            string uname = Request.Form["usernameRegister"];
+            string pass = Request.Form["passwordRegister"];
+
             pass = GetMd5Hash(md5Hash, pass);
             SqlConnection con = new SqlConnection();
             con.ConnectionString = @"Server=localhost;Database=slcm;User Id=sa;Password=P@55w0rd;";
             con.Open();
-            SqlCommand sql = new SqlCommand("SELECT count(email) FROM users WHERE email = @email AND password = @password", con);
-            sql.Parameters.AddWithValue("@email",uname);
-            sql.Parameters.AddWithValue("@password",pass);
-
-            int rows = (int)sql.ExecuteScalar();
-
-            if (rows == 1)
-            {
-                Session["username"] = uname;
-                Response.Redirect("main.aspx");
-            }
-            else
-                message.InnerText = "Wrong username or password";
-            
+            SqlCommand sql = new SqlCommand("INSERT INTO users(email,password) VALUES(@email,@password)", con);
+            sql.Parameters.Add("@email", System.Data.SqlDbType.VarChar, 100).Value = uname;
+            sql.Parameters.Add("@password", System.Data.SqlDbType.VarChar, 100).Value = pass;
+            sql.ExecuteNonQuery();
             con.Close();
+            Response.Redirect("index.aspx");
         }
         protected string GetMd5Hash(MD5 md5Hash, string input)
         {
@@ -61,14 +48,6 @@ namespace slcm
 
             // Return the hexadecimal string.
             return sBuilder.ToString();
-        }
-        protected void RegisterUser(object sender, System.EventArgs e)
-        {
-            
-
-
-
-
         }
     }
 }
