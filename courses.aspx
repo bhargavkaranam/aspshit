@@ -8,7 +8,7 @@
     <style>
 		table
         {
-			height: 100vh;
+			
 			width: 100%;
 		}
 	</style>
