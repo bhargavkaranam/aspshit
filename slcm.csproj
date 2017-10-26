@@ -65,6 +65,7 @@
     <Content Include="admission.aspx" />
     <Content Include="courses.aspx" />
     <Content Include="details.aspx" />
+    <Content Include="inventory.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -111,6 +112,12 @@
     </Compile>
     <Compile Include="details.aspx.designer.cs">
       <DependentUpon>details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="inventory.aspx.cs">
+      <DependentUpon>inventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="inventory.aspx.designer.cs">
+      <DependentUpon>inventory.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

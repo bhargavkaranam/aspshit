@@ -17,13 +17,16 @@ namespace slcm
         SqlCommand cmd = new SqlCommand();
         SqlConnection con = new SqlConnection();
         protected void Page_Load(object sender, EventArgs e)
-        {            
+        {
             if (!Page.IsPostBack)
+            {                
                 BindData();
+            }
         }
         public void BindData()
         {
             con.ConnectionString = @"Server=localhost;Database=slcm;User Id=sa;Password=P@55w0rd;";
+
             cmd.CommandText = "Select * from student_course WHERE roll_no = @rn";
             cmd.Parameters.AddWithValue("@rn",Request.QueryString["rollno"]);
             cmd.Connection = con;
@@ -34,7 +37,15 @@ namespace slcm
             Grid.DataSource = ds;
             Grid.DataBind();
             con.Close();
-            for(int i = 1; i <= 7; i++)
+            con.ConnectionString = @"Server=localhost;Database=slcm;User Id=sa;Password=P@55w0rd;";
+
+            cmd.CommandText = "Select current_semester from students WHERE roll_no = @rno";
+            cmd.Parameters.AddWithValue("@rno", Request.QueryString["rollno"]);
+            cmd.Connection = con;
+            con.Open();
+            int currentSemester = (int)cmd.ExecuteScalar();
+            con.Close();
+            for(int i = 1; i <= currentSemester; i++)
             {
                 TableRow row = new TableRow();
                 TableCell semNo = new TableCell();
