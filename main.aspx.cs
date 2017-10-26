@@ -14,7 +14,8 @@ namespace slcm
         protected void Page_Load(object o, EventArgs e)
         {
 
-
+            if (Session["username"] == null)
+                Response.Redirect("/index.aspx");
             if (Request.QueryString["action"] != null)
                 ((Label)Master.FindControl("message")).Text = "Student registration done. The roll number is " + Request.QueryString["rollno"];
             

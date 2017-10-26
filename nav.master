@@ -78,8 +78,8 @@
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a class="modal-trigger" href="#modal1">New Admission</a></li>
             <li><a href="courses.aspx">Course Register</a></li>
-            <li><a href="collapsible.html">Update Info</a></li>
-            <li><a href="inventory.aspx">Accounts and Inventory</a></li>
+            <li><a href="accounts.aspx">Accounts</a></li>
+            <li><a href="inventory.aspx">Inventory</a></li>
             <li><a href="research.aspx">Research</a></li>
           </ul>
         </div>

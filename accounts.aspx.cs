@@ -18,7 +18,8 @@ namespace slcm
         SqlConnection con = new SqlConnection();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["username"] == null)
+                Response.Redirect("/index.aspx");
             if (!Page.IsPostBack)
                 BindData();
         }
