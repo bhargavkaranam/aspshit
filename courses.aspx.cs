@@ -2,6 +2,7 @@
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Data;
@@ -50,6 +51,7 @@ namespace slcm
         }
         protected void Grid_DeleteCommand(object source, DataGridCommandEventArgs e)
         {
+            Response.Write(e.CommandName);
             con.ConnectionString = @"Server=localhost;Database=slcm;User Id=sa;Password=P@55w0rd;";
             cmd.Connection = con;
             int EmpId = (int)Grid.DataKeys[(int)e.Item.ItemIndex];
@@ -79,6 +81,19 @@ namespace slcm
             BindData();
         }
 
+        protected void Grid_DetailsCommand(object source, DataGridCommandEventArgs e)
+        {
+            if (e.CommandName == "Details")
+                ShowDetails(e);
+         
+        }
+
+        protected void ShowDetails(DataGridCommandEventArgs e)
+        {
+            TableCell itemCell = e.Item.Cells[0];
+            string item = itemCell.Text;
+            Response.Redirect("details.aspx?rollno=" + item);
+        }
 
 
     }

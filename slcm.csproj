@@ -64,6 +64,7 @@
     <Content Include="test.aspx" />
     <Content Include="admission.aspx" />
     <Content Include="courses.aspx" />
+    <Content Include="details.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -104,6 +105,12 @@
     </Compile>
     <Compile Include="courses.aspx.designer.cs">
       <DependentUpon>courses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="details.aspx.cs">
+      <DependentUpon>details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="details.aspx.designer.cs">
+      <DependentUpon>details.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
