@@ -1,8 +1,8 @@
-﻿<%@ Page Language="C#" Inherits="slcm.inventory" CodeFile="inventory.aspx.cs"%>
+﻿<%@ Page Language="C#" Inherits="slcm.research" %>
 <!DOCTYPE html>
 <html>
 <head runat="server">
-	<title>Inventory</title>
+	<title>Research</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <style>
@@ -15,12 +15,12 @@
 <body>
 	<form id="form1" runat="server">
 		<asp:DataGrid runat="server" id="Grid" PageSize="5" AllowPaging="True" DataKeyField="id" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanged="Grid_PageIndexChanged" OnCancelCommand="Grid_CancelCommand" OnDeleteCommand="Grid_DeleteCommand" OnEditCommand="Grid_EditCommand" OnUpdateCommand="Grid_UpdateCommand" OnItemCommand="Grid_DetailsCommand">
-				<Columns>  
+                <Columns>  
                         <asp:BoundColumn HeaderText="Id" DataField="id"> </asp:BoundColumn>
                         <asp:BoundColumn HeaderText="Department" DataField="branch"> </asp:BoundColumn>
                         <asp:BoundColumn DataField="name" HeaderText="Name"> </asp:BoundColumn>
-                        <asp:BoundColumn DataField="location" HeaderText="Location"> </asp:BoundColumn>
-                        <asp:BoundColumn DataField="quantity" HeaderText="Quantity"> </asp:BoundColumn>
+                        <asp:BoundColumn DataField="head" HeaderText="Head"> </asp:BoundColumn>
+                        <asp:BoundColumn DataField="other" HeaderText="Info"> </asp:BoundColumn>
                         <asp:EditCommandColumn EditText="Edit" CancelText="Cancel" UpdateText="Update" HeaderText="Edit"> </asp:EditCommandColumn>  
                         <asp:ButtonColumn CommandName="Delete" HeaderText="Delete" Text="Delete"> </asp:ButtonColumn>
                         
@@ -32,9 +32,9 @@
                     <ItemStyle BackColor="#FFFBD6" ForeColor="#333333" />  
                     <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" /> </asp:DataGrid> <br /> <br />
                 
-		       <table>  
+               <table>  
                     <tr>  
-					
+                    
                         <td>  
                             <asp:Label ID="lblEmpId" runat="server" Text="Branch"></asp:Label>  
                             <asp:TextBox id="TextBox1" runat="server"></asp:TextBox>
@@ -45,11 +45,11 @@
                             <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>  
                         </td>  
                         <td>  
-                            <asp:Label ID="lblLname" runat="server" Text="Location"></asp:Label>  
+                            <asp:Label ID="lblLname" runat="server" Text="Head"></asp:Label>  
                             <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>  
                         </td>
-					    <td>  
-                            <asp:Label ID="lblQuantity" runat="server" Text="Quantity"></asp:Label>  
+                        <td>  
+                            <asp:Label ID="lblQuantity" runat="server" Text="Other"></asp:Label>  
                             <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>  
                         </td>
 
@@ -71,4 +71,5 @@
         $('select').material_select();
         
     </script>
+
 </html>
